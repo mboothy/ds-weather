@@ -1,0 +1,6 @@
+[[redirects]]
+  from = "/fwo/IDQ60801/IDQ60801.94580.json"
+  to = "https://www.bom.gov.au/fwo/IDQ60801/IDQ60801.94580.json"
+  force = false
+  query = {path = ":path"}
+
