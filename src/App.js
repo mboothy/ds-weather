@@ -14,7 +14,7 @@ function App() {
 
   useEffect(async () => {
     setLoading(true)
-    const res = await axios.get('http://www.bom.gov.au/fwo/IDQ60801/IDQ60801.94580.json',{
+    const res = await axios.get('https://www.bom.gov.au/fwo/IDQ60801/IDQ60801.94580.json',{
       method: 'GET',
       mode: 'no-cors',
       credentials: 'same-origin',
