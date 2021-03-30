@@ -1,0 +1,9 @@
+To display
+- Date
+- Temp in C
+- Location
+- Humidity
+- Rain
+
+erros with cors
+use of another bom data set due to lack of required info
