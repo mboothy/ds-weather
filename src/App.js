@@ -10,11 +10,15 @@ function App() {
   const [weatherPoints, setWeatherPoints] = useState(10);
   const [location, setLocation] = useState();
   const [rainSince, setRainSince] = useState();
+
+  const cityName = "Gold Coast";
+  const APIkey = "51e92b20f26072684d35a73387bcca26";
   
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async () => {
     setLoading(true)
-    const res = await axios.get('/fwo/IDQ60801/IDQ60801.94580.json',{
+    const res = await axios.get(`/data/2.5/forecast/hourly?q=${cityName}&appid=${APIkey}`,{
       method: 'GET',
       mode: 'no-cors',
       credentials: 'same-origin',
@@ -24,14 +28,16 @@ function App() {
         'Content-Type': 'application/json',
         }
     }) 
+    console.log(res.data);
     if(res.error){
       setError(res.error)
     } else {
+      
       var i = 0;
-      let reduced = res.data.observations.data.slice(0,weatherPoints)
-      setLocation(res.data.observations.data[0].name)
-      setRainSince(res.data.observations.data[0].rain_trace)
+      let reduced = res.data.list.slice(0,weatherPoints)
+      setLocation(res.data.city.name)
       setWeatherData(reduced, renderWeather(reduced))
+      setRainSince(res.data.list[0].rain ? res.data.list[0].rain : 0)
     }
   }, []);
 

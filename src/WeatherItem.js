@@ -7,9 +7,9 @@ import React from 'react'
 const WeatherItem = ({weather}) => {
     return (
         <div className={'p-3 text-center text-gray-100'}>
-            <p className={'text-center'}>{weather.local_date_time.split('/')[1] }</p>
-            <p className="text-2xl font-bold">{weather.air_temp + "°C"}</p>
-            <p className="text-sm tfont-semibold">{weather.rel_hum + "%"} Humidity</p>
+            <p className={'text-center'}>{weather.dt_txt.split(" ")[1]}</p>
+            <p className="text-2xl font-bold">{Math.floor(weather.main.temp-273.15) + "°C"}</p>
+            <p className="text-sm tfont-semibold">{weather.main.humidity + "%"} Humidity</p>
             
            
         </div>
